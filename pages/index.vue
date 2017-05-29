@@ -8,7 +8,8 @@
       <li v-for="(product, index) in products" class="user">
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
           {{ product.title }}
-          <img v-bind:src="`img/${product.img}`" alt="Sample App Products" />
+          <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
+          <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
       </li>
     </ul>

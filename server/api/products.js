@@ -5,10 +5,10 @@ var router = Router();
 
 // Mock Users
 const products = [
-    { "title": "Ipad 5", "description": "lorem ipsum some test dimpsum" , "img":"iphone5.jpg"},
-    { "title": "Iphone 6", "description": "lorem ipsum some test dimsum" },
-    { "title": "Andorid 3", "description": "lorem ipsum some test dimsum" },
-    { "title": "Andorid 4", "description": "lorem ipsum some test dimsum" }
+    { "title": "Ipad 5", "description": "lorem ipsum some test dimpsum", "img": "iphone5.jpg" },
+    { "title": "Iphone 6", "description": "lorem ipsum some test dimsum", "img": "iphone6.png" },
+    { "title": "htcOne", "description": "lorem ipsum some test dimsum", "img": "htc.png" },
+    { "title": "huawe-P10", "description": "lorem ipsum some test dimsum", "img": "huawei-p10.jpg" }
 ];
 
 /* GET users listing. */

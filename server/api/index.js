@@ -1,10 +1,11 @@
-import { Router } from 'express'
+/*jshint esversion: 6 */
+import { Router } from 'express';
 
-import users from './users'
+import products from './products';
 
-var router = Router()
+var router = Router();
 
 // Add USERS Routes
-router.use(users)
+router.use(products);
 
-export default router
+export default router;

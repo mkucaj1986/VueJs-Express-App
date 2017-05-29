@@ -5,9 +5,9 @@
       USERS
     </h1>
     <ul class="users">
-      <li v-for="(user, index) in users" class="user">
+      <li v-for="(product, index) in products" class="user">
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ user.name }}
+          {{ product.title }}
         </nuxt-link>
       </li>
     </ul>
@@ -19,9 +19,9 @@ import axios from '~plugins/axios'
 
 export default {
   async asyncData () {
-    let { data } = await axios.get('/api/users')
+    let { data } = await axios.get('/api/products')
     return {
-      users: data
+      products: data
     }
   },
   head () {

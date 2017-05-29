@@ -7,10 +7,14 @@
     <ul class="users">
       <li class="user col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          <span class="product-title">{{ product.title }}</span>
+          <span class="product-title">{{ product.title }}  </span>
+          <span class="product-title">{{ product.price }}</span>
           <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
+        <a class="button add-to-cart" v-on:click="addToCart()">
+          ADD TO CART
+        </a>
       </li>
     </ul>
   </section>
@@ -27,6 +31,11 @@ export default {
       title: 'Sample E Commerce App'
     }
   },
+  methods: {
+    addToCart () {
+      console.log('click')
+    }
+  },
   head () {
     return {
       title: 'Sample E Commerce App'
@@ -36,6 +45,22 @@ export default {
 </script>
 
 <style scoped>
+.add-to-cart{
+  cursor:pointer;
+  position: absolute;
+  bottom:5px;
+  right: 0;
+  margin: 0 10%;
+  left: 0;
+  font-size: 12px;
+  padding: 10px 0;
+  transition: all 0.3s ease 0s;
+  width: 80%;
+}
+.add-to-cart:hover{
+  background-color: #000;
+  color:#fff;
+}
 .title
 {
   margin: 30px 0;
@@ -57,18 +82,14 @@ export default {
   position: relative;
   margin: 10px 1%;
   width: 23%;
-  min-height: 256px;
+  min-height: 280px;
 }
 .product-title{
   width: 100%;
 }
 .product-desc{
 width: 100%;
-position: absolute;
-bottom:0;
-right: 0;
-left: 0;
-font-size: 12px;
-padding: 0 0 10px 0;
+display: block;
+padding: 0;
 }
 </style>

@@ -2,13 +2,16 @@
   <section class="container">
     <img src="../assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
-      User
+      Product Page
     </h1>
     <h2 class="info">
       {{ product.title }}
+      {{ product.price }}
+      <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
+      {{product.description}}
     </h2>
     <nuxt-link class="button" to="/">
-      Users
+      HOME
     </nuxt-link>
   </section>
 </template>

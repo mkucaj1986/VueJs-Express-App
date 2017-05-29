@@ -5,7 +5,7 @@
       User
     </h1>
     <h2 class="info">
-      {{ user.name }}
+      {{ product.title }}
     </h2>
     <nuxt-link class="button" to="/">
       Users
@@ -19,9 +19,9 @@ import axios from '~plugins/axios'
 export default {
   name: 'id',
   asyncData ({ params, error }) {
-    return axios.get('/api/users/' + params.id)
+    return axios.get('/api/products/' + params.id)
     .then((res) => {
-      return { user: res.data }
+      return { product: res.data }
     })
     .catch((e) => {
       error({ statusCode: 404, message: 'User not found' })
@@ -29,7 +29,7 @@ export default {
   },
   head () {
     return {
-      title: `User: ${this.user.name}`
+      title: `User: ${this.product.title}`
     }
   }
 }

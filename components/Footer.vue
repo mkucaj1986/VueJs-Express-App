@@ -1,5 +1,5 @@
 <template>
   <footer>
-    Visit our website for more documentation : <a href="https://nuxtjs.org" target="_blank">nuxtjs.org</a>
+    Sanoke E-commerce App with nuxt JS : <a href="https://nuxtjs.org" target="_blank">nuxtjs.org</a>
   </footer>
 </template>

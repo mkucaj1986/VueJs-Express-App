@@ -2,12 +2,13 @@
   <section class="container">
     <img src="../assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
-      USERS
+      {{title}}
     </h1>
     <ul class="users">
       <li v-for="(product, index) in products" class="user">
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
           {{ product.title }}
+          <img v-bind:src="`img/${product.img}`" alt="Sample App Products" />
         </nuxt-link>
       </li>
     </ul>
@@ -21,12 +22,13 @@ export default {
   async asyncData () {
     let { data } = await axios.get('/api/products')
     return {
-      products: data
+      products: data,
+      title: 'Sample E Commerce App'
     }
   },
   head () {
     return {
-      title: 'Users'
+      title: 'Sample E Commerce App'
     }
   }
 }

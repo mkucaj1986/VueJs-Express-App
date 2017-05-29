@@ -5,9 +5,9 @@
       {{title}}
     </h1>
     <ul class="users">
-      <li v-for="(product, index) in products" class="user">
+      <li class="user col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ product.title }}
+          <span class="product-title">{{ product.title }}</span>
           <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
@@ -42,12 +42,33 @@ export default {
 }
 .users
 {
+  max-width: 768px;
+  display: block;
+  margin: 0 auto;
   list-style: none;
-  margin: 0;
   padding: 0;
+}
+.users li{
+  border: 2px solid #000;
+  padding: 10px 0;
 }
 .user
 {
-  margin: 10px 0;
+  position: relative;
+  margin: 10px 1%;
+  width: 23%;
+  min-height: 256px;
+}
+.product-title{
+  width: 100%;
+}
+.product-desc{
+width: 100%;
+position: absolute;
+bottom:0;
+right: 0;
+left: 0;
+font-size: 12px;
+padding: 0 0 10px 0;
 }
 </style>

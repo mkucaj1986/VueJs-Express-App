@@ -4,14 +4,9 @@ import { Router } from 'express';
 var router = Router();
 
 // Mock Users
-const products = [
-    { "title": "Ipad 5", "description": "lorem ipsum some test dimpsum", "img": "iphone5.jpg", "price": "$300" },
-    { "title": "Iphone 6", "description": "lorem ipsum some test dimsum", "img": "iphone6.png", "price": "$450" },
-    { "title": "htcOne", "description": "lorem ipsum some test dimsum", "img": "htc.png", "price": "$420" },
-    { "title": "huawe-P10", "description": "lorem ipsum some test dimsum", "img": "huawei-p10.jpg" , "price": "$240"}
-];
+import products from '../../api/products';
 
-/* GET users listing. */
+/* GET Products */
 router.get('/products', function(req, res, next) {
     res.json(products);
 });

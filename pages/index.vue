@@ -12,9 +12,11 @@
           <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
-        <a class="button add-to-cart" v-on:click="addToCart()">
+        <a class="button add-to-cart main-action-btn" @click="addToCart(product)">
           ADD TO CART
         </a>
+        <span class="qty-btn increment-qty main-action-btn" @click="increment">+</span>
+        <span class="qty-btn decrement-qty main-action-btn" @click="decrement">-</span>
       </li>
     </ul>
   </section>
@@ -24,27 +26,40 @@
 import axios from '~plugins/axios'
 
 export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/products')
-    return {
-      products: data,
-      title: 'Sample E Commerce App'
-    }
-  },
-  methods: {
-    addToCart () {
-      console.log('click')
-    }
-  },
-  head () {
-    return {
-      title: 'Sample E Commerce App'
-    }
-  }
+    async asyncData() {
+            let { data } = await axios.get('/api/products')
+            return {
+                products: data,
+                title: 'Sample E Commerce App'
+            }
+        },
+        methods: {
+            addToCart() {
+                console.log('click')
+            },
+            increment() {
+                this.$store.dispatch('increment', 1)
+            },
+            decrement() {
+                this.$store.dispatch('decrement', 1)
+            }
+        },
+        head() {
+            return {
+                title: 'Sample E Commerce App'
+            }
+        }
 }
 </script>
 
 <style scoped>
+.main-action-btn{
+  transition: all 0.3s ease 0s;
+}
+.main-action-btn:hover{
+  background-color: #000;
+  color:#fff;
+}
 .add-to-cart{
   cursor:pointer;
   position: absolute;
@@ -54,13 +69,9 @@ export default {
   left: 0;
   font-size: 12px;
   padding: 10px 0;
-  transition: all 0.3s ease 0s;
   width: 80%;
 }
-.add-to-cart:hover{
-  background-color: #000;
-  color:#fff;
-}
+
 .title
 {
   margin: 30px 0;
@@ -91,5 +102,18 @@ export default {
 width: 100%;
 display: block;
 padding: 0;
+}
+.qty-btn{
+  cursor:pointer;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  position: absolute;
+  bottom: -45px;
+}
+.increment-qty{
+  right:15px;
+}
+.decrement-qty{
+  left:15px;
 }
 </style>

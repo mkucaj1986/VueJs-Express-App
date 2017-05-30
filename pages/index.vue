@@ -17,6 +17,7 @@
         </a>
         <span class="qty-btn increment-qty main-action-btn" @click="increment">+</span>
         <span class="qty-btn decrement-qty main-action-btn" @click="decrement">-</span>
+        <IncrementView></IncrementView>
       </li>
     </ul>
   </section>
@@ -24,7 +25,7 @@
 
 <script>
 import axios from '~plugins/axios'
-
+import IncrementView from '../components/IncrementView';
 export default {
     async asyncData() {
             let { data } = await axios.get('/api/products')
@@ -33,12 +34,15 @@ export default {
                 title: 'Sample E Commerce App'
             }
         },
+        components: {
+              IncrementView
+            },
         methods: {
             addToCart() {
                 console.log('click')
             },
             increment() {
-                this.$store.dispatch('increment', 1)
+              this.$store.dispatch('increment', 1);
             },
             decrement() {
                 this.$store.dispatch('decrement', 1)

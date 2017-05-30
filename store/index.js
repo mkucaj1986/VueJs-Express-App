@@ -1,19 +1,15 @@
 /* jshint esversion: 6 */
+import Vue from 'vue';
 import Vuex from 'vuex';
+import increment from './modules/increment';
 
 const store = new Vuex.Store({
-    state: {
-        qty: 0
-    },
-    mutations: {
-        increment(state) {
-            state.qty++;
-        },
-        decrement(state) {
-            state.qty++;
-        },
+    modules: {
+        increment
     }
 });
+
 export default function() {
-    return new Vuex.Store(store);
+    return store;
 }
+

@@ -15,9 +15,9 @@
         <a class="button add-to-cart main-action-btn" @click="addToCart(product)">
           ADD TO CART
         </a>
-        <span class="qty-btn increment-qty main-action-btn" @click="increment">+</span>
-        <span class="qty-btn decrement-qty main-action-btn" @click="decrement">-</span>
-        <IncrementView></IncrementView>
+        <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
+        <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
+        <IncrementView class="quantity" :product="index"></IncrementView>
       </li>
     </ul>
   </section>
@@ -41,11 +41,11 @@ export default {
             addToCart() {
                 console.log('click')
             },
-            increment() {
-              this.$store.dispatch('increment', 1);
+            increment(product) {
+              this.$store.dispatch('increment', product);
             },
-            decrement() {
-                this.$store.dispatch('decrement', 1)
+            decrement(product) {
+                this.$store.dispatch('decrement', product)
             }
         },
         head() {
@@ -119,5 +119,16 @@ padding: 0;
 }
 .decrement-qty{
   left:15px;
+}
+.quantity{
+  border:1px solid #000;
+  display: block;
+  bottom: -45px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  width: 30px;
 }
 </style>

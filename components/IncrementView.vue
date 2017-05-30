@@ -1,13 +1,16 @@
 <template>
-  <div class="get-count">{{getCount}}</div>
+<div>
+	{{getProducts[product].qty}}
+</div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   export default {
+  	props: ['product'],
     computed: {
       ...mapGetters([
-        'getCount'
+        'getProducts'
       ])
     }
   }

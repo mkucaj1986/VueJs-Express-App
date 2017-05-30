@@ -1,38 +1,39 @@
 /* jshint esversion: 6 */
 import Vue from 'vue';
 import Vuex from 'vuex';
-// const quantity = 0;
-const state = {
-  count: 0
-};
+import products from '../../api/products';
+
+const state = products;
 
 const mutations = {
-  'INCREMENT' (state, payload) {
-    state.count += payload;
-  },
-  'DECREMENT' (state, payload) {
-    state.count -= payload;
-  }
+    'INCREMENT' (state, product) {
+        state[product].qty++;
+    },
+    'DECREMENT' (state, product) {
+        if (state[product].qty > 0) {
+            state[product].qty--;
+        }
+    }
 };
 
 const actions = {
-  increment: ({commit}, payload) => {
-    commit('INCREMENT', payload);
-  },
-  decrement: ({commit}, payload) => {
-    commit('DECREMENT', payload);
-  }
+    increment: ({ commit }, product) => {
+        commit('INCREMENT', product);
+    },
+    decrement: ({ commit }, product) => {
+        commit('DECREMENT', product);
+    }
 };
 
 const getters = {
-  getCount: state => {
-    return state.count;
-  }
+    getProducts: state => {
+        return state;
+    }
 };
 
 export default {
-  state,
-  getters,
-  actions,
-  mutations
+    state,
+    getters,
+    actions,
+    mutations
 };

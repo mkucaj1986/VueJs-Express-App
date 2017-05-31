@@ -15,10 +15,16 @@ const mutations = {
         }
     },
     'TOTALPRICE' (state, product) {
+        if(state[product].qty < 0){
+            state[product].qty = 0;
+        }
         state[product].totalPrice = state[product].qty * state[product].price;
     },
     'CHECKSTORE' (state, product) {
         const outOfStock = parseInt(state[product].qty) >= parseInt(state[product].inventory);
+        if(state[product].qty < 0){
+            state[product].qty = 0;
+        }
         if(outOfStock){
             state[product].outOfStock = true;
             state[product].qty = state[product].inventory;

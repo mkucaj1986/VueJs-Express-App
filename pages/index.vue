@@ -4,8 +4,8 @@
     <h1 class="title">
       {{title}}
     </h1>
-    <ul class="users">
-      <li class="user col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
+    <ul class="products">
+      <li class="product col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
           <span class="product-title">{{ product.title }}  </span>
           <span class="product-title">{{ product.price }}</span>
@@ -65,6 +65,7 @@ export default {
   color:#fff;
 }
 .add-to-cart{
+  background-color: #07d207;
   cursor:pointer;
   position: absolute;
   bottom:5px;
@@ -80,7 +81,7 @@ export default {
 {
   margin: 30px 0;
 }
-.users
+.products
 {
   max-width: 768px;
   display: block;
@@ -88,11 +89,11 @@ export default {
   list-style: none;
   padding: 0;
 }
-.users li{
+.products li{
   border: 2px solid #000;
   padding: 10px 0;
 }
-.user
+.product
 {
   position: relative;
   margin: 10px 1%;
@@ -130,5 +131,9 @@ padding: 0;
   position: absolute;
   text-align: center;
   width: 30px;
+}
+img{
+  max-height: 134px;
+  margin: 0 auto;
 }
 </style>

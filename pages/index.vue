@@ -16,8 +16,10 @@
           <a class="button add-to-cart main-action-btn" @click="addToCart(product)">
             ADD TO CART
           </a>
-          <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
-          <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
+          <div class="incre-decre-ctrls">
+            <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
+            <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
+          </div>
           <IncrementView class="quantity" :product="index"></IncrementView>
           <totalPriceComp class="totalPrice" :product="index"></totalPriceComp>
         </div>
@@ -88,8 +90,7 @@ export default {
 .add-to-cart{
   background-color: #07d207;
   cursor:pointer;
-  position: absolute;
-  bottom:5px;
+  position: relative;
   right: 0;
   margin: 0 10%;
   left: 0;
@@ -134,7 +135,7 @@ padding: 0;
   padding: 5px 10px;
   border: 1px solid #000;
   position: absolute;
-  bottom: -45px;
+  top: 5px;
 }
 .increment-qty{
   float: right;
@@ -147,11 +148,11 @@ padding: 0;
 .quantity{
   border:1px solid #000;
   display: block;
-  bottom: -40px;
+  top: 10px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
   text-align: center;
   width: 30px;
 }
@@ -162,8 +163,14 @@ img{
 .product-controls{
   display: inline-block;
   width: 100%;
-  padding: 40px 0 0 0;
+  padding: 15px 0 0 0;
   position: relative;
   top: 0;
+}
+.incre-decre-ctrls{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 100%;
 }
 </style>

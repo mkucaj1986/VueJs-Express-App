@@ -25,12 +25,12 @@
   width: 100%;
   padding: 0 0 0 15px;
   position: relative;
-  top: 73px;
+  top: 30px;
   text-align: left;
 }
 .out-of-stock{
   color: red;
-  top: 85px;
+  top: 55px;
   position: relative;
 }
 </style>

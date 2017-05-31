@@ -18,7 +18,7 @@
           </a>
           <div class="incre-decre-ctrls">
             <button :disabled="getProducts[index].outOfStock" class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</button>
-            <button class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</button>
+            <button v-show="getProducts[index].qty > 0" class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</button>
           </div>
           <IncrementView class="quantity" :product="index"></IncrementView>
           <totalPriceComp class="totalPrice" :product="index"></totalPriceComp>

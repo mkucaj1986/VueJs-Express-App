@@ -17,8 +17,8 @@
             ADD TO CART
           </a>
           <div class="incre-decre-ctrls">
-            <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
-            <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
+            <button :disabled="getProducts[index].outOfStock" class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</button>
+            <button class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</button>
           </div>
           <IncrementView class="quantity" :product="index"></IncrementView>
           <totalPriceComp class="totalPrice" :product="index"></totalPriceComp>
@@ -130,7 +130,12 @@ width: 100%;
 display: block;
 padding: 0;
 }
+.qty-btn:disabled{
+    background-color: #ccc;
+    color:#ccc;
+}
 .qty-btn{
+  background-color: #fff;
   cursor:pointer;
   padding: 5px 10px;
   border: 1px solid #000;

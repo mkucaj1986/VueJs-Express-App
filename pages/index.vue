@@ -117,7 +117,7 @@ export default {
   position: relative;
   margin: 10px 1%;
   width: 23%;
-  min-height: 280px;
+  min-height: 340px;
 }
 .product-title{
   width: 100%;
@@ -135,15 +135,17 @@ padding: 0;
   bottom: -45px;
 }
 .increment-qty{
-  right:15px;
+  float: right;
+  right:10px;
 }
 .decrement-qty{
-  left:15px;
+  float: left;
+  left:10px;
 }
 .quantity{
   border:1px solid #000;
   display: block;
-  bottom: -45px;
+  bottom: -40px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -156,7 +158,10 @@ img{
   margin: 0 auto;
 }
 .product-controls{
+  display: inline-block;
+  width: 100%;
+  padding: 40px 0 0 0;
   position: relative;
-  top: 48px;
+  top: 0;
 }
 </style>

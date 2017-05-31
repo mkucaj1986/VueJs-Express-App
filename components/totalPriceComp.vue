@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="total-product-page">{{getProducts[product].totalPrice}}</div>
+  <div class="total-product-page">Total Price: {{getProducts[product].totalPrice}}</div>
 </div>
 </template>
 
@@ -18,6 +18,13 @@
 
 <style scoped>
 .total-product-page{
-
+  float: left;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  padding: 0 0 0 15px;
+  position: relative;
+  top: 73px;
+  text-align: left;
 }
 </style>

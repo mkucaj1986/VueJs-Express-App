@@ -1,6 +1,7 @@
 <template>
 <div>
-  <div class="total-product-page">Total Price: {{getProducts[product].totalPrice}}</div>
+  <div class="total-product-page">Total Price: ${{getProducts[product].totalPrice}}</div>
+  <span class="out-of-stock" v-if="getProducts[product].outOfStock">Out of stock</span>
 </div>
 </template>
 
@@ -26,5 +27,10 @@
   position: relative;
   top: 73px;
   text-align: left;
+}
+.out-of-stock{
+  color: red;
+  top: 85px;
+  position: relative;
 }
 </style>

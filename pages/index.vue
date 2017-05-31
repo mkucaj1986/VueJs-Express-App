@@ -55,10 +55,12 @@ export default {
             increment(product) {
               this.$store.dispatch('increment', product);
               this.$store.dispatch('totalPrice', product);
+              this.$store.dispatch('checkStore', product);
             },
             decrement(product) {
                 this.$store.dispatch('decrement', product);
                 this.$store.dispatch('totalPrice', product);
+                this.$store.dispatch('checkStore', product);
             }
         },
           watch: {

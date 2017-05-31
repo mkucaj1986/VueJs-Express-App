@@ -16,6 +16,14 @@ const mutations = {
     },
     'TOTALPRICE' (state, product) {
         state[product].totalPrice = state[product].qty * state[product].price;
+    },
+    'CHECKSTORE' (state, product) {
+        const outOfStock = state[product].qty > state[product].inventory;
+        if(outOfStock){
+            state[product].outOfStock = true;
+        }else{
+            state[product].outOfStock = false;
+        }
     }
 };
 
@@ -28,6 +36,9 @@ const actions = {
     },
     totalPrice: ({ commit }, product) => {
         commit('TOTALPRICE', product);
+    },
+    checkStore: ({ commit }, product) => {
+        commit('CHECKSTORE', product);
     }
 };
 

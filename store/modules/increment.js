@@ -18,9 +18,10 @@ const mutations = {
         state[product].totalPrice = state[product].qty * state[product].price;
     },
     'CHECKSTORE' (state, product) {
-        const outOfStock = state[product].qty >= state[product].inventory;
+        const outOfStock = parseInt(state[product].qty) >= parseInt(state[product].inventory);
         if(outOfStock){
             state[product].outOfStock = true;
+            state[product].qty = state[product].inventory;
         }else{
             state[product].outOfStock = false;
         }

@@ -13,6 +13,9 @@ const mutations = {
         if (state[product].qty > 0) {
             state[product].qty--;
         }
+    },
+    'TOTALPRICE' (state, product) {
+        state[product].totalPrice = state[product].qty * state[product].price;
     }
 };
 
@@ -22,6 +25,9 @@ const actions = {
     },
     decrement: ({ commit }, product) => {
         commit('DECREMENT', product);
+    },
+    totalPrice: ({ commit }, product) => {
+        commit('TOTALPRICE', product);
     }
 };
 

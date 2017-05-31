@@ -8,16 +8,19 @@
       <li class="product col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
           <span class="product-title">{{ product.title }}  </span>
-          <span class="product-title">{{ product.price }}</span>
+          <span class="product-title">${{ product.price }}</span>
           <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
-        <a class="button add-to-cart main-action-btn" @click="addToCart(product)">
-          ADD TO CART
-        </a>
-        <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
-        <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
-        <IncrementView class="quantity" :product="index"></IncrementView>
+        <div class="product-controls">
+          <a class="button add-to-cart main-action-btn" @click="addToCart(product)">
+            ADD TO CART
+          </a>
+          <span class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</span>
+          <span class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</span>
+          <IncrementView class="quantity" :product="index"></IncrementView>
+          <totalPriceComp class="totalPrice" :product="index"></totalPriceComp>
+        </div>
       </li>
     </ul>
   </section>
@@ -25,7 +28,9 @@
 
 <script>
 import axios from '~plugins/axios'
-import IncrementView from '../components/IncrementView';
+import IncrementView from '../components/IncrementView'
+import totalPriceComp from '../components/totalPriceComp'
+import { mapGetters } from 'vuex'
 export default {
     async asyncData() {
             let { data } = await axios.get('/api/products')
@@ -34,8 +39,14 @@ export default {
                 title: 'Sample E Commerce App'
             }
         },
+        computed: {
+          ...mapGetters([
+            'getProducts'
+          ])
+        },
         components: {
-              IncrementView
+              IncrementView,
+              totalPriceComp
             },
         methods: {
             addToCart() {
@@ -43,11 +54,19 @@ export default {
             },
             increment(product) {
               this.$store.dispatch('increment', product);
+              this.$store.dispatch('totalPrice', product);
             },
             decrement(product) {
-                this.$store.dispatch('decrement', product)
+                this.$store.dispatch('decrement', product);
+                this.$store.dispatch('totalPrice', product);
             }
         },
+          watch: {
+            // whenever question changes, this function will run
+            totalProductPrice: function () {
+              console.log('price');
+            }
+          },
         head() {
             return {
                 title: 'Sample E Commerce App'
@@ -135,5 +154,9 @@ padding: 0;
 img{
   max-height: 134px;
   margin: 0 auto;
+}
+.product-controls{
+  position: relative;
+  top: 48px;
 }
 </style>

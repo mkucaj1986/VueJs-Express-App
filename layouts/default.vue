@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-layout">
     <nuxt/>
     <my-footer/>
   </div>
@@ -48,5 +48,9 @@ export default {
   font-weight: 300;
   font-size: 2.5em;
   margin: 0;
+}
+.main-layout{
+  margin: 0 auto;
+  max-width: 1366px;
 }
 </style>

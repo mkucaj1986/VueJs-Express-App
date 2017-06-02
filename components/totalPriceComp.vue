@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="total-product-page">Total Price: ${{getProducts[product].totalPrice}}</div>
+  <div class="total-product-page">Total Price: <strong>${{getProducts[product].totalPrice}}</strong></div>
   <span class="out-of-stock" v-if="getProducts[product].outOfStock">Out of stock</span>
 </div>
 </template>

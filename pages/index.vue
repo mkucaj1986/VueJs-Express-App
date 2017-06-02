@@ -7,21 +7,19 @@
     <div class="col-sm-10">
         <products-list :products="products"></products-list>
     </div>
-<!--     <div class="col-sm-2">
+    <div class="col-sm-2">
         <shopping-cart></shopping-cart>
-    </div> -->
+    </div>
   </section>
 </template>
 
 <script>
 import axios from '~plugins/axios'
 import productsList from '../components/products/productsList'
-
+import shoppingCart from '../components/shop/shoppingCart'
 export default {
-
     async asyncData() {
             let { data } = await axios.get('/api/products')
-            console.log(data);
             return {
                 products: data,
                 title: 'Sample E Commerce App'
@@ -31,7 +29,8 @@ export default {
 
         },
         components: {
-            productsList
+            productsList,
+            shoppingCart
         },
         methods: {
 

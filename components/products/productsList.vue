@@ -1,10 +1,11 @@
 <template>
   <section>
+  <h2>{{title}}</h2>
     <ul class="products">
       <li class="product col-xs-6 col-sm-6 col-md-6 col-lg-6" v-for="(product, index) in products" >
         <nuxt-link :to="{ name: 'id', params: { id: index }}">
           <span class="product-title">{{ product.title }}  </span>
-          <span class="product-title">${{ product.price }}</span>
+          <span class="product-title"><strong>${{ product.price }}</strong></span>
           <img v-bind:src="`img/${product.img}`" class="img-responsive" alt="Sample App Products" />
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
@@ -25,11 +26,15 @@
 </template>
 
 <script>
-import axios from '~plugins/axios'
 import IncrementView from '../IncrementView'
 import totalPriceComp from '../totalPriceComp'
 import { mapGetters } from 'vuex'
 export default {
+        data: function () {
+            return{
+                title: 'Products List'
+            }
+        },
         props: ['products'],
         computed: {
           ...mapGetters([

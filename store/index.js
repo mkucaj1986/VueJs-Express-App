@@ -2,10 +2,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import increment from './modules/increment';
+import shoppingCart from './modules/shoppingCart';
 
 const store = new Vuex.Store({
     modules: {
-        increment
+        increment,
+        shoppingCart
     }
 });
 

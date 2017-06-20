@@ -1,7 +1,10 @@
 <template>
   <section>
     <h2>{{title}}</h2>
-    <div v-for="item in items">{{item.title}}</div>
+    <div v-for="item in items">
+    	<span>{{item.title}}</span>
+    	<span>  {{item.qty}}</span>
+    </div>
   </section>
 </template>
 

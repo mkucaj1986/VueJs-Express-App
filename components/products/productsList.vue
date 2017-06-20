@@ -10,7 +10,7 @@
           <span class="product-desc">{{product.description}}</span>
         </nuxt-link>
         <div class="product-controls">          
-          <addToCart :product="product" :qty="getProducts[index].qty"></addToCart>
+          <addToCart :product="getProducts[index]" :qty="getProducts[index].qty"></addToCart>
           <div class="incre-decre-ctrls">
             <button :disabled="getProducts[index].outOfStock" class="qty-btn increment-qty main-action-btn" @click="increment(index)">+</button>
             <button v-show="getProducts[index].qty > 0" class="qty-btn decrement-qty main-action-btn" @click="decrement(index)">-</button>

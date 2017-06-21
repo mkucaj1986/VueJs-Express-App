@@ -10,6 +10,7 @@
     <div class="col-sm-3">
         <shopping-cart></shopping-cart>
     </div>
+    <cart-total-price></cart-total-price>
   </section>
 </template>
 
@@ -17,6 +18,7 @@
 import axios from '~plugins/axios'
 import productsList from '../components/products/productsList'
 import shoppingCart from '../components/shop/shoppingCart'
+import cartTotalPrice from '../components/shop/cartTotalPrice'
 export default {
     async asyncData() {
             let { data } = await axios.get('/api/products')
@@ -30,6 +32,7 @@ export default {
         },
         components: {
             productsList,
+            cartTotalPrice,
             shoppingCart
         },
         methods: {

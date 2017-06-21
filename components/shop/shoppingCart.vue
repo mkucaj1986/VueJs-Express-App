@@ -1,7 +1,7 @@
 <template>
   <section class="shoping-cart-container">
     <h2>{{title}}</h2>
-    <div v-for="(item, index) in items" class="cart-item-container">
+    <div v-for="(item, index) in items.shoppingCart" class="cart-item-container">
     	<div class="cart-item">
 			<div class="cart-item-details cart-item-img">
 				<img v-bind:src="`img/${item.img}`" class="img-responsive" alt="Sample App Products" />
@@ -9,7 +9,7 @@
 			<div class="cart-item-details-box">
     			<div class="cart-item-details cart-item-title">{{item.title}}</div>
     			<div class="cart-item-details">Quantity: {{item.qty}}</div>
-    			<div class="cart-item-details">Price: {{item.price}}</div>
+    			<div class="cart-item-details">Price: ${{item.price}}</div>
     		</div>
     		<div class="cart-item-details-box-delete">
     		<button @click="deleteProduct(item, index)">X</button>

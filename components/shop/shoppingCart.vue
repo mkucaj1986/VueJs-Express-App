@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section class="shoping-cart-container">
     <h2>{{title}}</h2>
-    <div v-for="item in items">
+    <div v-for="(item, index) in items" class="cart-item-container">
     	<div class="cart-item">
 			<div class="cart-item-details cart-item-img">
 				<img v-bind:src="`img/${item.img}`" class="img-responsive" alt="Sample App Products" />
@@ -10,6 +10,9 @@
     			<div class="cart-item-details cart-item-title">{{item.title}}</div>
     			<div class="cart-item-details">Quantity: {{item.qty}}</div>
     			<div class="cart-item-details">Price: {{item.price}}</div>
+    		</div>
+    		<div class="cart-item-details-box-delete">
+    		<button @click="deleteProduct(item, index)">X</button>
     		</div>
     	</div>
     </div>
@@ -26,11 +29,28 @@ export default {
   },
   computed: mapGetters({
     items: 'getShoppingCart'
-  })
+  }),
+     methods: {
+         deleteProduct(product, index) {
+         	this.$store.dispatch('deleteItem', {product, index});
+         }
+    }
 }
 </script>
 
 <style scoped>
+.shoping-cart-container{
+	height: 400px;
+	overflow-y: auto;
+}
+.cart-item-container{
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+.cart-item-container:first-of-type{
+	border-top:1px solid #ccc;
+}
 .cart-item{
 	display: inline-block;
 	width: 100%;
@@ -52,6 +72,12 @@ export default {
 	display: block;
 	float: left;
 	padding: 0 0 0 5px;
-	width: 60%;
+	width: 50%;
+}
+.cart-item-details-box-delete{
+	display: block;
+	float: left;
+	width: 10%;	
+	padding: 20px 10px 0 0;
 }
 </style>

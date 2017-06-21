@@ -4,10 +4,10 @@
     <h1 class="title">
       {{title}}
     </h1>
-    <div class="col-sm-10">
+    <div class="col-sm-9">
         <products-list :products="products"></products-list>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <shopping-cart></shopping-cart>
     </div>
   </section>

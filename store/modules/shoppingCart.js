@@ -8,12 +8,21 @@ const state = shoppingCart;
 const mutations = {
     'ADDTOCART' (state, product) {
         state.push(product);
+    },
+    'DELETEITEM' (state, item) {
+        const index = item.index;
+        if (index > -1) {
+            state.splice(index, 1);
+        }
     }
 };
 
 const actions = {
     addToCart: ({ commit }, product) => {
         commit('ADDTOCART', product);
+    },
+    deleteItem: ({ commit }, item) => {
+        commit('DELETEITEM', item);
     }
 };
 
